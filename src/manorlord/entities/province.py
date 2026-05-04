@@ -9,3 +9,5 @@ class Province:
     population: int = 1000
     base_tax: int = 5
     buildings: list[str] = field(default_factory=list)
+    polygon: list[tuple[int, int]] = field(default_factory=list)
+    center: tuple[int, int] = (0, 0)

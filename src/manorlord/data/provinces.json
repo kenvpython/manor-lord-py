@@ -1,0 +1,74 @@
+[
+  {
+    "id": 6,
+    "name": "Greymere",
+    "terrain": "coast",
+    "population": 2200,
+    "base_tax": 11,
+    "polygon": [[10, 130], [380, 120], [398, 380], [355, 590], [5, 588]],
+    "center": [195, 360]
+  },
+  {
+    "id": 7,
+    "name": "Highstone",
+    "terrain": "mountain",
+    "population": 1800,
+    "base_tax": 9,
+    "polygon": [[380, 120], [760, 132], [770, 410], [752, 590], [398, 580], [355, 580]],
+    "center": [575, 360]
+  },
+  {
+    "id": 3,
+    "name": "Caernon",
+    "terrain": "hills",
+    "population": 2400,
+    "base_tax": 12,
+    "polygon": [[760, 132], [1140, 125], [1145, 380], [1135, 588], [770, 590]],
+    "center": [950, 360]
+  },
+  {
+    "id": 8,
+    "name": "Marwood",
+    "terrain": "forest",
+    "population": 2100,
+    "base_tax": 10,
+    "polygon": [[1140, 125], [1495, 132], [1495, 392], [1492, 595], [1145, 590]],
+    "center": [1320, 360]
+  },
+  {
+    "id": 2,
+    "name": "Blackmoor",
+    "terrain": "swamp",
+    "population": 1700,
+    "base_tax": 8,
+    "polygon": [[5, 588], [355, 590], [398, 808], [395, 1075], [10, 1075]],
+    "center": [200, 838]
+  },
+  {
+    "id": 1,
+    "name": "Ashford",
+    "terrain": "plains",
+    "population": 2600,
+    "base_tax": 13,
+    "polygon": [[398, 580], [752, 590], [770, 808], [775, 1075], [395, 1075]],
+    "center": [590, 838]
+  },
+  {
+    "id": 4,
+    "name": "Dunmere",
+    "terrain": "lakes",
+    "population": 2000,
+    "base_tax": 10,
+    "polygon": [[770, 590], [1135, 588], [1145, 808], [1140, 1075], [775, 1075]],
+    "center": [955, 838]
+  },
+  {
+    "id": 5,
+    "name": "Fairhold",
+    "terrain": "city",
+    "population": 3200,
+    "base_tax": 16,
+    "polygon": [[1135, 588], [1492, 595], [1495, 808], [1495, 1075], [1140, 1075]],
+    "center": [1315, 838]
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "name": "County of Ashford",
+    "color_key": "ashford",
+    "description": "Fertile fields, old roads, and a quiet valor.",
+    "lord": { "first_name_pool": "male", "last_name": "of Ashford", "title": "COUNT", "age_min": 24, "age_max": 38 },
+    "treasury": 160,
+    "provinces": [1]
+  },
+  {
+    "id": 2,
+    "name": "Marches of Blackmoor",
+    "color_key": "blackmoor",
+    "description": "Fenlands and mist, where the bog never sleeps.",
+    "lord": { "first_name_pool": "male", "last_name": "of Blackmoor", "title": "COUNT", "age_min": 30, "age_max": 50 },
+    "treasury": 110,
+    "provinces": [2]
+  },
+  {
+    "id": 3,
+    "name": "Holdings of Caernon",
+    "color_key": "caernon",
+    "description": "Hill country lined with old stone forts.",
+    "lord": { "first_name_pool": "female", "last_name": "of Caernon", "title": "COUNT", "age_min": 28, "age_max": 44 },
+    "treasury": 130,
+    "provinces": [3]
+  },
+  {
+    "id": 4,
+    "name": "Dunmere of the Lakes",
+    "color_key": "dunmere",
+    "description": "Water-rich, cautious traders, and quiet keeps.",
+    "lord": { "first_name_pool": "male", "last_name": "of Dunmere", "title": "COUNT", "age_min": 22, "age_max": 35 },
+    "treasury": 145,
+    "provinces": [4]
+  },
+  {
+    "id": 5,
+    "name": "Fairhold",
+    "color_key": "fairhold",
+    "description": "Walled cities, rich coffers, ambitious bankers.",
+    "lord": { "first_name_pool": "female", "last_name": "of Fairhold", "title": "COUNT", "age_min": 35, "age_max": 55 },
+    "treasury": 220,
+    "provinces": [5]
+  },
+  {
+    "id": 6,
+    "name": "Greymere",
+    "color_key": "greymere",
+    "description": "Salt-bitten coast and the long northern sea.",
+    "lord": { "first_name_pool": "male", "last_name": "of Greymere", "title": "COUNT", "age_min": 26, "age_max": 42 },
+    "treasury": 100,
+    "provinces": [6]
+  },
+  {
+    "id": 7,
+    "name": "Mountain Hold of Highstone",
+    "color_key": "highstone",
+    "description": "Cold passes, iron mines, and stubborn pride.",
+    "lord": { "first_name_pool": "male", "last_name": "of Highstone", "title": "COUNT", "age_min": 32, "age_max": 50 },
+    "treasury": 120,
+    "provinces": [7]
+  },
+  {
+    "id": 8,
+    "name": "Wood of Marwood",
+    "color_key": "marwood",
+    "description": "Slow forests and slower oaths, but a steady levy.",
+    "lord": { "first_name_pool": "female", "last_name": "of Marwood", "title": "COUNT", "age_min": 24, "age_max": 40 },
+    "treasury": 135,
+    "provinces": [8]
+  }
+]
