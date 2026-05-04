@@ -167,6 +167,14 @@ class MapViewScene(Scene):
                 self.hovered_realm_id = new_hover
                 self._refresh_sidebar()
 
+        if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+            settlement_id = self.renderer.settlement_at(event.pos)
+            if settlement_id is not None:
+                from manorlord.ui.scenes.settlement_detail import SettlementDetailScene
+
+                self.manager.change_scene(SettlementDetailScene(self.manager, settlement_id))
+                return
+
         self.end_turn_button.handle_event(event)
         self.menu_button.handle_event(event)
 

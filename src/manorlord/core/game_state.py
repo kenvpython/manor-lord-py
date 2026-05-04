@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
 
 from manorlord.core.event_bus import EventBus
-from manorlord.entities import Character, Province, Realm
+from manorlord.entities import Character, Province, Realm, Settlement
 
 
 @dataclass
@@ -11,6 +11,7 @@ class GameState:
     characters: dict[int, Character] = field(default_factory=dict)
     realms: dict[int, Realm] = field(default_factory=dict)
     provinces: dict[int, Province] = field(default_factory=dict)
+    settlements: dict[int, Settlement] = field(default_factory=dict)
     log: list[str] = field(default_factory=list)
     event_bus: EventBus = field(default_factory=EventBus, repr=False, compare=False)
 

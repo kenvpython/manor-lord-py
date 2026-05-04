@@ -11,5 +11,17 @@
     "of Ashford", "of Blackmoor", "of Caernon", "of Dunmere",
     "of Fairhold", "of Greymere", "of Highstone", "of Marwood",
     "of Stormgate", "of Westvale"
+  ],
+  "town_names": [
+    "Greenford", "Millbrook", "Thornwick", "Ironholt", "Oakhaven",
+    "Briarfield", "Westerleigh", "Dunbridge", "Fallowmere", "Redhaven",
+    "Silvermere", "Blackwick", "Copperford", "Stonehaven", "Mossbridge",
+    "Rivermere", "Goldwick", "Whitemoor", "Darkhollow", "Fairbridge"
+  ],
+  "village_names": [
+    "Dunhollow", "Bramblewick", "Fernmere", "Stonecroft", "Mosshollow",
+    "Wrenwick", "Thistleford", "Crookedhollow", "Pinemere", "Brackenwick",
+    "Sallowford", "Dustermere", "Hollowcroft", "Briarwick", "Nettleford",
+    "Gorsehollow", "Reedmere", "Foggywick", "Ashcroft", "Heathmere"
   ]
 }

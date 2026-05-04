@@ -6,7 +6,8 @@ from pathlib import Path
 
 from manorlord.config import REALM_COLORS
 from manorlord.core.game_state import GameState
-from manorlord.entities import Character, Province, Realm, Title
+from manorlord.entities import Character, Province, Realm, Settlement, Title
+from manorlord.ui._geom import random_point_in_polygon
 
 
 _DATA_DIR = Path(__file__).resolve().parent.parent / "data"
@@ -84,8 +85,96 @@ def create_world(seed: int | None = None) -> GameState:
         )
         state.realms[realm.id] = realm
 
+    _generate_settlements(state, rng)
     state.add_log("Eight realms watch the marches; one will rise.")
     return state
+
+
+def _generate_settlements(state: GameState, rng: random.Random) -> None:
+    names = _load_names()
+    town_names = list(names.get("town_names", []))
+    village_names = list(names.get("village_names", []))
+    next_id = 1
+
+    for realm in state.realms.values():
+        province_ids = list(realm.province_ids)
+        if not province_ids:
+            continue
+
+        # Capital
+        cap_province = state.provinces.get(realm.capital_province_id)
+        if cap_province is None:
+            cap_province = state.provinces.get(province_ids[0])
+        if cap_province is None:
+            continue
+
+        cx, cy = cap_province.center
+        cap_pos = random_point_in_polygon(cap_province.polygon, rng, inset=30)
+        if cap_pos is None:
+            cap_pos = (cx, cy)
+
+        settlement = Settlement(
+            id=next_id,
+            name=f"{realm.name}",
+            kind="capital",
+            realm_id=realm.id,
+            province_id=cap_province.id,
+            local_x=cap_pos[0],
+            local_y=cap_pos[1],
+            population=int(cap_province.population * rng.uniform(0.2, 0.3)),
+        )
+        state.settlements[settlement.id] = settlement
+        next_id += 1
+
+        # Towns
+        town_count = rng.randint(1, 4)
+        for i in range(town_count):
+            prov_id = province_ids[i % len(province_ids)]
+            province = state.provinces[prov_id]
+            pos = random_point_in_polygon(province.polygon, rng, inset=20)
+            if pos is None:
+                pos = province.center
+
+            name = rng.choice(town_names) if town_names else f"{province.name} Town"
+            population = rng.randint(300, 800)
+
+            settlement = Settlement(
+                id=next_id,
+                name=name,
+                kind="town",
+                realm_id=realm.id,
+                province_id=prov_id,
+                local_x=pos[0],
+                local_y=pos[1],
+                population=population,
+            )
+            state.settlements[settlement.id] = settlement
+            next_id += 1
+
+        # Villages
+        village_count = rng.randint(1, 5)
+        for i in range(village_count):
+            prov_id = province_ids[i % len(province_ids)]
+            province = state.provinces[prov_id]
+            pos = random_point_in_polygon(province.polygon, rng, inset=15)
+            if pos is None:
+                pos = province.center
+
+            name = rng.choice(village_names) if village_names else f"{province.name} Village"
+            population = rng.randint(50, 200)
+
+            settlement = Settlement(
+                id=next_id,
+                name=name,
+                kind="village",
+                realm_id=realm.id,
+                province_id=prov_id,
+                local_x=pos[0],
+                local_y=pos[1],
+                population=population,
+            )
+            state.settlements[settlement.id] = settlement
+            next_id += 1
 
 
 def set_player(state: GameState, realm_id: int) -> None:

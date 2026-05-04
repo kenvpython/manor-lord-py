@@ -114,6 +114,18 @@ class WorldMapRenderer:
                 continue
             pygame.draw.polygon(layer, COLOR_INK_BROWN, smoothed, width=2)
 
+        for settlement in self.state.settlements.values():
+            sx, sy = settlement.local_x, settlement.local_y
+            if settlement.kind == "capital":
+                pygame.draw.circle(layer, COLOR_GOLD_HIGHLIGHT, (sx, sy), 10)
+                pygame.draw.circle(layer, COLOR_INK_BROWN, (sx, sy), 10, width=2)
+            elif settlement.kind == "town":
+                pygame.draw.circle(layer, (200, 180, 140), (sx, sy), 6)
+                pygame.draw.circle(layer, COLOR_INK_BROWN, (sx, sy), 6, width=1)
+            else:  # village
+                pygame.draw.circle(layer, (200, 180, 140), (sx, sy), 3)
+                pygame.draw.circle(layer, COLOR_INK_BROWN, (sx, sy), 3, width=1)
+
         pygame.draw.rect(layer, COLOR_BORDER_DARK, layer.get_rect(), width=4)
         return layer
 
@@ -126,6 +138,19 @@ class WorldMapRenderer:
                 province = self.state.provinces.get(province_id)
                 if province and point_in_polygon(local, province.polygon):
                     return realm.id
+        return None
+
+    def settlement_at(self, pos: tuple[int, int]) -> int | None:
+        if not self.rect.collidepoint(pos):
+            return None
+        local_x = pos[0] - self.rect.x
+        local_y = pos[1] - self.rect.y
+        for settlement in self.state.settlements.values():
+            dx = settlement.local_x - local_x
+            dy = settlement.local_y - local_y
+            hit_radius = 12 if settlement.kind == "capital" else (8 if settlement.kind == "town" else 5)
+            if dx * dx + dy * dy <= hit_radius * hit_radius:
+                return settlement.id
         return None
 
     def _draw_realm_outline(
