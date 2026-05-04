@@ -214,7 +214,7 @@ _compass_letter_font: pygame.font.Font | None = None
 def _get_compass_font() -> pygame.font.Font:
     global _compass_letter_font
     if _compass_letter_font is None:
-        _compass_letter_font = pygame.font.SysFont("serif", 18, bold=True)
+        _compass_letter_font = pygame.font.SysFont("microsoftyahei", 18, bold=True)
     return _compass_letter_font
 
 

@@ -12,9 +12,9 @@ from manorlord.config import (
 class Theme:
     def __init__(self) -> None:
         pygame.font.init()
-        self.title = pygame.font.SysFont("serif", FONT_TITLE_SIZE, bold=True)
-        self.heading = pygame.font.SysFont("serif", FONT_HEADING_SIZE, bold=True)
-        self.subheading = pygame.font.SysFont("serif", FONT_SUBHEADING_SIZE, bold=True)
-        self.body = pygame.font.SysFont("serif", FONT_BODY_SIZE)
-        self.body_italic = pygame.font.SysFont("serif", FONT_BODY_SIZE, italic=True)
-        self.small = pygame.font.SysFont("serif", FONT_SMALL_SIZE)
+        self.title = pygame.font.SysFont("microsoftyahei", FONT_TITLE_SIZE, bold=True)
+        self.heading = pygame.font.SysFont("microsoftyahei", FONT_HEADING_SIZE, bold=True)
+        self.subheading = pygame.font.SysFont("microsoftyahei", FONT_SUBHEADING_SIZE, bold=True)
+        self.body = pygame.font.SysFont("microsoftyahei", FONT_BODY_SIZE)
+        self.body_italic = pygame.font.SysFont("microsoftyahei", FONT_BODY_SIZE, italic=True)
+        self.small = pygame.font.SysFont("microsoftyahei", FONT_SMALL_SIZE)
