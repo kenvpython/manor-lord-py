@@ -12,13 +12,13 @@ class MainMenuScene(Scene):
         cx = SCREEN_WIDTH // 2
 
         self.title = Label(
-            "MANOR LORD",
+            "庄园领主",
             self.theme.title,
             color=COLOR_ACCENT,
             center=(cx, 260),
         )
         self.subtitle = Label(
-            "A medieval strategy of blood, gold, and crowns.",
+            "一部关于血、金与王冠的中世纪策略。",
             self.theme.body,
             color=COLOR_TEXT_DIM,
             center=(cx, 360),
@@ -32,13 +32,13 @@ class MainMenuScene(Scene):
         ]
 
         self.buttons = [
-            Button(rects[0], "New Game", self.theme.heading, self._start_new_game),
-            Button(rects[1], "Load (TODO)", self.theme.heading, self._noop),
-            Button(rects[2], "Quit", self.theme.heading, self.manager.quit),
+            Button(rects[0], "新游戏", self.theme.heading, self._start_new_game),
+            Button(rects[1], "读取（待实现）", self.theme.heading, self._noop),
+            Button(rects[2], "退出", self.theme.heading, self.manager.quit),
         ]
 
         self.footer = Label(
-            "v0.2.0 — Eight Realms",
+            "v0.2.0 — 八国争霸",
             self.theme.small,
             color=COLOR_TEXT_DIM,
             center=(cx, SCREEN_HEIGHT - 36),

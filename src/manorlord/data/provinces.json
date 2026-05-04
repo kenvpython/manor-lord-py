@@ -1,8 +1,8 @@
 [
   {
     "id": 6,
-    "name": "Greymere",
-    "terrain": "coast",
+    "name": "灰沼",
+    "terrain": "海岸",
     "population": 2200,
     "base_tax": 11,
     "polygon": [
@@ -16,8 +16,8 @@
   },
   {
     "id": 7,
-    "name": "Highstone",
-    "terrain": "mountain",
+    "name": "高石",
+    "terrain": "山地",
     "population": 1800,
     "base_tax": 9,
     "polygon": [
@@ -31,8 +31,8 @@
   },
   {
     "id": 3,
-    "name": "Caernon",
-    "terrain": "hills",
+    "name": "卡恩农",
+    "terrain": "丘陵",
     "population": 2400,
     "base_tax": 12,
     "polygon": [
@@ -46,8 +46,8 @@
   },
   {
     "id": 8,
-    "name": "Marwood",
-    "terrain": "forest",
+    "name": "马伍德",
+    "terrain": "森林",
     "population": 2100,
     "base_tax": 10,
     "polygon": [
@@ -61,8 +61,8 @@
   },
   {
     "id": 2,
-    "name": "Blackmoor",
-    "terrain": "swamp",
+    "name": "黑沼",
+    "terrain": "沼泽",
     "population": 1700,
     "base_tax": 8,
     "polygon": [
@@ -76,8 +76,8 @@
   },
   {
     "id": 1,
-    "name": "Ashford",
-    "terrain": "plains",
+    "name": "阿什福德",
+    "terrain": "平原",
     "population": 2600,
     "base_tax": 13,
     "polygon": [
@@ -91,8 +91,8 @@
   },
   {
     "id": 4,
-    "name": "Dunmere",
-    "terrain": "lakes",
+    "name": "邓米尔",
+    "terrain": "湖泊",
     "population": 2000,
     "base_tax": 10,
     "polygon": [
@@ -106,8 +106,8 @@
   },
   {
     "id": 5,
-    "name": "Fairhold",
-    "terrain": "city",
+    "name": "辉堡",
+    "terrain": "城邦",
     "population": 3200,
     "base_tax": 16,
     "polygon": [

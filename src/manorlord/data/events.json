@@ -1,24 +1,24 @@
 [
   {
     "id": "good_harvest",
-    "title": "A Bountiful Harvest",
-    "description": "Fields yield more than expected. Treasury swells.",
+    "title": "丰收之年",
+    "description": "田地收成超出预期，国库充盈。",
     "trigger": "turn_advanced",
     "weight": 5,
     "effects": [{ "type": "treasury_delta", "value": 25 }]
   },
   {
     "id": "peasant_unrest",
-    "title": "Peasant Unrest",
-    "description": "Whispers of rebellion stir in the villages.",
+    "title": "农民骚动",
+    "description": "村庄中流传着叛乱的低语。",
     "trigger": "turn_advanced",
     "weight": 3,
     "effects": [{ "type": "loyalty_delta", "value": -5 }]
   },
   {
     "id": "wandering_knight",
-    "title": "A Wandering Knight",
-    "description": "A landless knight offers his sword.",
+    "title": "流浪骑士",
+    "description": "一位无地骑士前来投效。",
     "trigger": "turn_advanced",
     "weight": 2,
     "effects": [{ "type": "troops_delta", "value": 20 }]

@@ -37,13 +37,13 @@ class RealmSelectScene(Scene):
         )
 
         self.title = Label(
-            "Choose Your Realm",
+            "选择你的领地",
             self.theme.heading,
             color=COLOR_ACCENT,
             topleft=(40, 30),
         )
         self.subtitle = Label(
-            "Hover to inspect, click to select, then Begin.",
+            "悬停查看，点击选择，然后开始。",
             self.theme.body,
             color=COLOR_TEXT_DIM,
             topleft=(40, 78),
@@ -53,13 +53,13 @@ class RealmSelectScene(Scene):
 
         self.begin_button = Button(
             pygame.Rect(SIDEBAR_X + 40, SCREEN_HEIGHT - 100, SIDEBAR_WIDTH - 80, 60),
-            "Begin",
+            "开始",
             self.theme.heading,
             self._begin,
         )
         self.back_button = Button(
             pygame.Rect(SCREEN_WIDTH - 160, 30, 130, 50),
-            "Back",
+            "返回",
             self.theme.body,
             self._back,
         )
@@ -90,11 +90,11 @@ class RealmSelectScene(Scene):
         focused = self.selected_realm_id or self.hovered_realm_id
 
         if focused is None:
-            lines.append(Label("No realm selected", self.theme.subheading, color=COLOR_TEXT_DIM, topleft=(x, y)))
+            lines.append(Label("未选择领地", self.theme.subheading, color=COLOR_TEXT_DIM, topleft=(x, y)))
             y += 50
-            lines.append(Label("Hover over the map to learn", self.theme.body, color=COLOR_TEXT_DIM, topleft=(x, y)))
+            lines.append(Label("将鼠标悬停在地图上", self.theme.body, color=COLOR_TEXT_DIM, topleft=(x, y)))
             y += 30
-            lines.append(Label("about each realm.", self.theme.body, color=COLOR_TEXT_DIM, topleft=(x, y)))
+            lines.append(Label("了解各领地。", self.theme.body, color=COLOR_TEXT_DIM, topleft=(x, y)))
         else:
             realm = self.state.realms[focused]
             lord = self.state.characters[realm.owner_id]
@@ -108,36 +108,36 @@ class RealmSelectScene(Scene):
 
             lines.append(Label(f"{lord.title.display_name} {lord.full_name}", self.theme.body, topleft=(x, y)))
             y += 36
-            lines.append(Label(f"age {lord.age}", self.theme.small, color=COLOR_TEXT_DIM, topleft=(x, y)))
+            lines.append(Label(f"年龄 {lord.age}", self.theme.small, color=COLOR_TEXT_DIM, topleft=(x, y)))
             y += 32
 
-            stats = f"Mar {lord.martial}  Dip {lord.diplomacy}  Stw {lord.stewardship}  Int {lord.intrigue}"
+            stats = f"统{lord.martial}  外{lord.diplomacy}  管{lord.stewardship}  谋{lord.intrigue}"
             lines.append(Label(stats, self.theme.small, color=COLOR_TEXT_DIM, topleft=(x, y)))
             y += 36
 
             if province is not None:
                 lines.append(Label(
-                    f"{province.name} — {province.terrain.title()}",
+                    f"{province.name} — {province.terrain}",
                     self.theme.body,
                     topleft=(x, y),
                 ))
                 y += 32
                 lines.append(Label(
-                    f"Population: {province.population}",
+                    f"人口：{province.population}",
                     self.theme.small,
                     color=COLOR_TEXT_DIM,
                     topleft=(x, y),
                 ))
                 y += 24
                 lines.append(Label(
-                    f"Base tax: {province.base_tax}",
+                    f"基础税收：{province.base_tax}",
                     self.theme.small,
                     color=COLOR_TEXT_DIM,
                     topleft=(x, y),
                 ))
                 y += 32
 
-            lines.append(Label(f"Treasury: {realm.treasury}", self.theme.body, color=COLOR_ACCENT, topleft=(x, y)))
+            lines.append(Label(f"国库：{realm.treasury}", self.theme.body, color=COLOR_ACCENT, topleft=(x, y)))
             y += 40
 
             for line in self._wrap(realm.description, 28):

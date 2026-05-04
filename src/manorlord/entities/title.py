@@ -9,4 +9,9 @@ class Title(IntEnum):
 
     @property
     def display_name(self) -> str:
-        return self.name.capitalize()
+        return {
+            Title.BARON: "男爵",
+            Title.COUNT: "伯爵",
+            Title.DUKE: "公爵",
+            Title.KING: "国王",
+        }[self]

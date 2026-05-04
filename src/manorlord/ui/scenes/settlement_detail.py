@@ -17,6 +17,12 @@ from manorlord.ui.widgets import Button, Label, Panel
 
 SIDEBAR_X = SCREEN_WIDTH - SIDEBAR_WIDTH
 
+_KIND_NAMES = {
+    "capital": "主城",
+    "town": "城镇",
+    "village": "村庄",
+}
+
 
 class SettlementDetailScene(Scene):
     def __init__(self, manager: "SceneManager", settlement_id: int) -> None:
@@ -31,7 +37,7 @@ class SettlementDetailScene(Scene):
 
         self.back_button = Button(
             pygame.Rect(SCREEN_WIDTH - 160, 30, 130, 50),
-            "Back",
+            "返回",
             self.theme.body,
             self._back,
         )
@@ -50,7 +56,7 @@ class SettlementDetailScene(Scene):
 
         settlement = self.state.settlements.get(self.settlement_id)
         if settlement is None:
-            self.content_lines = [Label("Unknown settlement", self.theme.heading, color=COLOR_ACCENT, topleft=(40, 30))]
+            self.content_lines = [Label("未知聚落", self.theme.heading, color=COLOR_ACCENT, topleft=(40, 30))]
             return
 
         realm = self.state.realms.get(settlement.realm_id)
@@ -64,31 +70,32 @@ class SettlementDetailScene(Scene):
         lines.append(Label(settlement.name, self.theme.heading, color=COLOR_ACCENT, topleft=(x, y)))
         y += 60
 
-        lines.append(Label(f"Type: {settlement.kind.title()}", self.theme.subheading, topleft=(x, y)))
+        kind_label = _KIND_NAMES.get(settlement.kind, settlement.kind)
+        lines.append(Label(f"类型：{kind_label}", self.theme.subheading, topleft=(x, y)))
         y += 50
 
         if realm is not None:
-            lines.append(Label(f"Realm: {realm.name}", self.theme.body, topleft=(x, y)))
+            lines.append(Label(f"领地：{realm.name}", self.theme.body, topleft=(x, y)))
             y += 40
         if province is not None:
-            lines.append(Label(f"Province: {province.name} — {province.terrain.title()}", self.theme.body, topleft=(x, y)))
+            lines.append(Label(f"省份：{province.name} — {province.terrain}", self.theme.body, topleft=(x, y)))
             y += 40
 
-        lines.append(Label(f"Population: {settlement.population}", self.theme.body, topleft=(x, y)))
+        lines.append(Label(f"人口：{settlement.population}", self.theme.body, topleft=(x, y)))
         y += 40
 
         if lord is not None:
-            lines.append(Label(f"Ruler: {lord.title.display_name} {lord.full_name}", self.theme.body, color=COLOR_TEXT_DIM, topleft=(x, y)))
+            lines.append(Label(f"统治者：{lord.title.display_name}{lord.full_name}", self.theme.body, color=COLOR_TEXT_DIM, topleft=(x, y)))
             y += 36
 
         y += 20
         desc = self._flavor_text(settlement, province)
-        for sentence in desc.split(". "):
+        for sentence in desc.split("。"):
             sentence = sentence.strip()
             if not sentence:
                 continue
-            if not sentence.endswith("."):
-                sentence += "."
+            if not sentence.endswith("。"):
+                sentence += "。"
             for wrapped in self._wrap(sentence, 55):
                 lines.append(Label(wrapped, self.theme.body, color=COLOR_TEXT_DIM, topleft=(x, y)))
                 y += 32
@@ -97,41 +104,41 @@ class SettlementDetailScene(Scene):
 
     @staticmethod
     def _flavor_text(settlement, province) -> str:
-        terrain = province.terrain if province else "unknown"
+        terrain = province.terrain if province else "未知"
         kind = settlement.kind
         flavor_map: dict[str, dict[str, str]] = {
             "capital": {
-                "plains": "The capital bustles with traders and messengers along wide avenues.",
-                "mountain": "Stone walls rise from the mountain slope, sheltering the realm's seat of power.",
-                "forest": "Timber halls and carved gates mark the heart of the woodland realm.",
-                "hills": "Terraced gardens crown the hilltop, visible for leagues in every direction.",
-                "coast": "Harbor bells ring through salt-worn streets as ships moor at the capital's quays.",
-                "swamp": "Raised walkways connect the stilted halls of this soggy but defensible capital.",
-                "lakes": "Water gates and canal bridges weave through the lake-bound capital.",
-                "city": "Towers of stone and glass loom over crowded market squares.",
+                "平原": "主城大道上车水马龙，商贾与信使往来不绝。",
+                "山地": "石墙从山腰拔起，庇护着这片领地的权力中枢。",
+                "森林": " timber 厅堂与雕刻大门标志着林地王国的心脏。",
+                "丘陵": "层层梯田花园环绕山顶，四面八方皆可视。",
+                "海岸": "海港钟声穿过盐渍街道，船只停靠在主城码头。",
+                "沼泽": "架高的栈道连接着这座潮湿却易守难攻的主城。",
+                "湖泊": "水门与运河桥梁纵横交错，水城风采尽显。",
+                "城邦": "石塔与玻璃穹顶耸立在拥挤的集市广场之上。",
             },
             "town": {
-                "plains": "A modest trade post where grain wagons gather before the harvest roads.",
-                "mountain": "Miners' lanterns flicker in the narrow lanes between stone storehouses.",
-                "forest": "Lumber camps send their best timber through this quiet woodland town.",
-                "hills": "Sheep markets and wool dye-vats color the streets of this hillside town.",
-                "coast": "Fishing nets hang across every doorway, drying in the sea breeze.",
-                "swamp": "Reed-thatch roofs and bog-iron forges give this town a stubborn character.",
-                "lakes": "Boatwrights and net-weavers keep the lake trade moving through calm waters.",
-                "city": "A dense borough of artisans and merchants, thick with workshop smoke.",
+                "平原": "一座不起眼的贸易站，收割季节前粮车汇聚于此。",
+                "山地": "矿工的提灯在石头仓库之间的狭窄巷弄里闪烁。",
+                "森林": "伐木营将最好的 timber 运经这座宁静的林间小镇。",
+                "丘陵": "羊群集市与染缸为这座山坡小镇染上斑斓色彩。",
+                "海岸": "家家户户门前晾着渔网，在海风中飘舞。",
+                "沼泽": "芦苇屋顶与沼泽铁匠铺赋予这座小镇坚韧的性格。",
+                "湖泊": "造船匠与织网人维系着平静的湖上贸易。",
+                "城邦": "工匠与商人密集的街区，作坊烟雾缭绕。",
             },
             "village": {
-                "plains": "Small fields ring a cluster of low cottages.",
-                "mountain": "Terraced goat-pens cling to the slopes above stone cottages.",
-                "forest": "Charcoal pits and trapper huts hide among the trees.",
-                "hills": "Sheep trails wander between stone walls older than any living memory.",
-                "coast": "A handful of boats pulled ashore, nets mended by weathered hands.",
-                "swamp": "Stilted huts rise above the muck on ancient driven posts.",
-                "lakes": "Reed baskets and dried fish hang from every eave.",
-                "city": "Crowded alleys and shared courtyards hide behind the grander avenues.",
+                "平原": "低矮的茅屋簇拥在几亩田地之间。",
+                "山地": "层层羊圈攀附在陡坡之上，石屋点缀其间。",
+                "森林": "炭窑与猎户小屋隐匿于树林深处。",
+                "丘陵": "羊群小径在比任何活人记忆都古老的石墙之间蜿蜒。",
+                "海岸": "几艘小船拖上岸，饱经风霜的手修补着渔网。",
+                "沼泽": "高脚茅屋矗立在古旧木桩之上，凌驾于泥泞之上。",
+                "湖泊": "芦苇篮与干鱼悬挂在每座屋檐下。",
+                "城邦": "狭窄的巷道与共享庭院隐藏在宽阔大道背后。",
             },
         }
-        return flavor_map.get(kind, flavor_map["village"]).get(terrain, "A quiet settlement, unknown to most travelers.")
+        return flavor_map.get(kind, flavor_map["village"]).get(terrain, "一座宁静的聚落，鲜为旅人所知。")
 
     @staticmethod
     def _wrap(text: str, width: int) -> list[str]:

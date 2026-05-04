@@ -1,50 +1,50 @@
 [
   {
     "id": "brave",
-    "name": "Brave",
-    "description": "Charges into danger; bonus to martial.",
+    "name": "勇敢",
+    "description": "冲锋陷阵；军事+2。",
     "modifiers": { "martial": 2, "diplomacy": -1 }
   },
   {
     "id": "craven",
-    "name": "Craven",
-    "description": "Avoids conflict; penalty to martial.",
+    "name": "怯懦",
+    "description": "回避冲突；军事-2。",
     "modifiers": { "martial": -2, "stewardship": 1 }
   },
   {
     "id": "shrewd",
-    "name": "Shrewd",
-    "description": "A keen judge of people and gold.",
+    "name": "精明",
+    "description": "善于识人聚财。",
     "modifiers": { "diplomacy": 1, "intrigue": 1, "stewardship": 1 }
   },
   {
     "id": "wrathful",
-    "name": "Wrathful",
-    "description": "Quick to anger; vassals fear and resent.",
+    "name": "易怒",
+    "description": "暴躁易怒；封臣畏惧怨恨。",
     "modifiers": { "diplomacy": -2, "martial": 1 }
   },
   {
     "id": "just",
-    "name": "Just",
-    "description": "Rules with fairness; vassals are loyal.",
+    "name": "公正",
+    "description": "公正施政；封臣忠心耿耿。",
     "modifiers": { "diplomacy": 2, "intrigue": -1 }
   },
   {
     "id": "greedy",
-    "name": "Greedy",
-    "description": "Hoards wealth at the cost of reputation.",
+    "name": "贪婪",
+    "description": "聚敛财富，不惜声望。",
     "modifiers": { "stewardship": 2, "diplomacy": -1 }
   },
   {
     "id": "deceitful",
-    "name": "Deceitful",
-    "description": "A schemer in the shadows.",
+    "name": "狡诈",
+    "description": "暗中谋划的阴谋家。",
     "modifiers": { "intrigue": 2, "diplomacy": -1 }
   },
   {
     "id": "honest",
-    "name": "Honest",
-    "description": "Speaks plainly, schemes poorly.",
+    "name": "诚实",
+    "description": "直言不讳，不善权谋。",
     "modifiers": { "intrigue": -2, "diplomacy": 1 }
   }
 ]

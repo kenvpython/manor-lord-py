@@ -86,7 +86,7 @@ def create_world(seed: int | None = None) -> GameState:
         state.realms[realm.id] = realm
 
     _generate_settlements(state, rng)
-    state.add_log("Eight realms watch the marches; one will rise.")
+    state.add_log("八国虎视眈眈，唯有一方崛起。")
     return state
 
 
@@ -183,7 +183,7 @@ def set_player(state: GameState, realm_id: int) -> None:
         raise ValueError(f"Unknown realm id {realm_id}")
     state.player_character_id = realm.owner_id
     player = state.characters[realm.owner_id]
-    state.add_log(f"You are {player.title.display_name} {player.full_name} of {realm.name}.")
+    state.add_log(f"你是{realm.name}的{player.title.display_name}{player.full_name}。")
 
 
 def new_game(seed: int | None = None, realm_id: int = 1) -> GameState:

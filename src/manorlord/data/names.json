@@ -1,27 +1,27 @@
 {
   "male": [
-    "Aldric", "Baldwin", "Cedric", "Edmund", "Garrick",
-    "Henrik", "Leofric", "Osric", "Roland", "Theodore"
+    "阿尔德里克", "鲍德温", "塞德里克", "埃德蒙", "加里克",
+    "亨里克", "莱奥弗里克", "奥斯里克", "罗兰", "西奥多"
   ],
   "female": [
-    "Adelaide", "Beatrix", "Eleanor", "Gisela", "Helena",
-    "Isolde", "Margery", "Rosamund", "Sybilla", "Yvaine"
+    "阿德莱德", "比阿特丽斯", "埃莉诺", "吉塞拉", "海伦娜",
+    "伊索尔德", "玛格丽", "罗莎蒙德", "西比拉", "伊薇恩"
   ],
   "surnames": [
-    "of Ashford", "of Blackmoor", "of Caernon", "of Dunmere",
-    "of Fairhold", "of Greymere", "of Highstone", "of Marwood",
-    "of Stormgate", "of Westvale"
+    "·阿什福德", "·黑沼", "·卡恩农", "·邓米尔",
+    "·辉堡", "·灰沼", "·高石", "·马伍德",
+    "·风暴门", "·西谷"
   ],
   "town_names": [
-    "Greenford", "Millbrook", "Thornwick", "Ironholt", "Oakhaven",
-    "Briarfield", "Westerleigh", "Dunbridge", "Fallowmere", "Redhaven",
-    "Silvermere", "Blackwick", "Copperford", "Stonehaven", "Mossbridge",
-    "Rivermere", "Goldwick", "Whitemoor", "Darkhollow", "Fairbridge"
+    "绿堡", "磨溪", "荆棘岭", "铁堡", "橡港",
+    "荆棘原", "西岭", "墩桥", "休耕地", "红港",
+    "银泽", "黑村", "铜堡", "石港", "苔桥",
+    "河泽", "金村", "白原", "暗谷", "辉桥"
   ],
   "village_names": [
-    "Dunhollow", "Bramblewick", "Fernmere", "Stonecroft", "Mosshollow",
-    "Wrenwick", "Thistleford", "Crookedhollow", "Pinemere", "Brackenwick",
-    "Sallowford", "Dustermere", "Hollowcroft", "Briarwick", "Nettleford",
-    "Gorsehollow", "Reedmere", "Foggywick", "Ashcroft", "Heathmere"
+    "敦谷", "荆棘村", "蕨泽", "石田", "苔谷",
+    "鹪鹩村", "蓟堡", "弯谷", "松泽", "蕨村",
+    "柳堡", "尘泽", "空谷", "荆棘村", "荨麻堡",
+    "荆豆谷", "芦苇泽", "雾村", "灰田", "荒野泽"
   ]
 }

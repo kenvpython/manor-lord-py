@@ -36,20 +36,20 @@ class MapViewScene(Scene):
             pygame.Rect(SIDEBAR_X, HUD_HEIGHT, SIDEBAR_WIDTH, SCREEN_HEIGHT - HUD_HEIGHT),
         )
 
-        self.turn_label = Label("Turn: 1", self.theme.heading, color=COLOR_ACCENT, topleft=(40, 22))
-        self.gold_label = Label("Gold: 0", self.theme.heading, topleft=(280, 22))
-        self.troops_label = Label("Troops: 0", self.theme.heading, topleft=(530, 22))
+        self.turn_label = Label("回合：1", self.theme.heading, color=COLOR_ACCENT, topleft=(40, 22))
+        self.gold_label = Label("金币：0", self.theme.heading, topleft=(280, 22))
+        self.troops_label = Label("军队：0", self.theme.heading, topleft=(530, 22))
         self.ruler_label = Label("", self.theme.body, color=COLOR_TEXT_DIM, topleft=(40, 72))
 
         self.end_turn_button = Button(
             pygame.Rect(SIDEBAR_X + 60, SCREEN_HEIGHT - 100, SIDEBAR_WIDTH - 120, 60),
-            "End Turn",
+            "结束回合",
             self.theme.heading,
             self._end_turn,
         )
         self.menu_button = Button(
             pygame.Rect(SCREEN_WIDTH - 160, 30, 130, 50),
-            "Menu",
+            "菜单",
             self.theme.body,
             self._back_to_menu,
         )
@@ -79,7 +79,7 @@ class MapViewScene(Scene):
         player = self.state.player
         if player is not None and player_realm is not None:
             self.ruler_label.text = (
-                f"{player.title.display_name} {player.full_name}, age {player.age} — {player_realm.name}"
+                f"{player_realm.name}的{player.title.display_name}{player.full_name}，{player.age}岁"
             )
         self._refresh_sidebar()
 
@@ -100,7 +100,7 @@ class MapViewScene(Scene):
         realm = self.state.realms[focus_realm_id]
         lord = self.state.characters[realm.owner_id]
 
-        header = "Foreign Realm" if is_inspect else "Your Realm"
+        header = "他国领地" if is_inspect else "你的领地"
         lines.append(Label(header, self.theme.subheading, color=COLOR_ACCENT, topleft=(x, y)))
         y += 50
 
@@ -108,19 +108,19 @@ class MapViewScene(Scene):
         lines.append(Label(realm.name, self.theme.body, topleft=(x + 30, y)))
         y += 36
 
-        lines.append(Label(f"{lord.title.display_name} {lord.full_name}", self.theme.body, topleft=(x, y)))
+        lines.append(Label(f"{lord.title.display_name}{lord.full_name}", self.theme.body, topleft=(x, y)))
         y += 30
-        lines.append(Label(f"age {lord.age}", self.theme.small, color=COLOR_TEXT_DIM, topleft=(x, y)))
+        lines.append(Label(f"年龄 {lord.age}", self.theme.small, color=COLOR_TEXT_DIM, topleft=(x, y)))
         y += 30
 
-        lines.append(Label(f"Treasury: {realm.treasury}", self.theme.body, topleft=(x, y)))
+        lines.append(Label(f"国库：{realm.treasury}", self.theme.body, topleft=(x, y)))
         y += 28
-        lines.append(Label(f"Income: {realm.income}", self.theme.small, color=COLOR_TEXT_DIM, topleft=(x, y)))
+        lines.append(Label(f"收入：{realm.income}", self.theme.small, color=COLOR_TEXT_DIM, topleft=(x, y)))
         y += 24
-        lines.append(Label(f"Troops: {realm.troops}", self.theme.small, color=COLOR_TEXT_DIM, topleft=(x, y)))
+        lines.append(Label(f"军队：{realm.troops}", self.theme.small, color=COLOR_TEXT_DIM, topleft=(x, y)))
         y += 24
         lines.append(Label(
-            f"Provinces: {len(realm.province_ids)}",
+            f"省份数：{len(realm.province_ids)}",
             self.theme.small,
             color=COLOR_TEXT_DIM,
             topleft=(x, y),
@@ -133,7 +133,7 @@ class MapViewScene(Scene):
 
         if not is_inspect:
             y += 10
-            lines.append(Label("Recent events", self.theme.body, color=COLOR_ACCENT, topleft=(x, y)))
+            lines.append(Label("近期事件", self.theme.body, color=COLOR_ACCENT, topleft=(x, y)))
             y += 32
             for entry in self.state.log[-7:]:
                 lines.append(Label(entry, self.theme.small, color=COLOR_TEXT_DIM, topleft=(x, y)))
