@@ -1,0 +1,50 @@
+[
+  {
+    "id": "brave",
+    "name": "Brave",
+    "description": "Charges into danger; bonus to martial.",
+    "modifiers": { "martial": 2, "diplomacy": -1 }
+  },
+  {
+    "id": "craven",
+    "name": "Craven",
+    "description": "Avoids conflict; penalty to martial.",
+    "modifiers": { "martial": -2, "stewardship": 1 }
+  },
+  {
+    "id": "shrewd",
+    "name": "Shrewd",
+    "description": "A keen judge of people and gold.",
+    "modifiers": { "diplomacy": 1, "intrigue": 1, "stewardship": 1 }
+  },
+  {
+    "id": "wrathful",
+    "name": "Wrathful",
+    "description": "Quick to anger; vassals fear and resent.",
+    "modifiers": { "diplomacy": -2, "martial": 1 }
+  },
+  {
+    "id": "just",
+    "name": "Just",
+    "description": "Rules with fairness; vassals are loyal.",
+    "modifiers": { "diplomacy": 2, "intrigue": -1 }
+  },
+  {
+    "id": "greedy",
+    "name": "Greedy",
+    "description": "Hoards wealth at the cost of reputation.",
+    "modifiers": { "stewardship": 2, "diplomacy": -1 }
+  },
+  {
+    "id": "deceitful",
+    "name": "Deceitful",
+    "description": "A schemer in the shadows.",
+    "modifiers": { "intrigue": 2, "diplomacy": -1 }
+  },
+  {
+    "id": "honest",
+    "name": "Honest",
+    "description": "Speaks plainly, schemes poorly.",
+    "modifiers": { "intrigue": -2, "diplomacy": 1 }
+  }
+]

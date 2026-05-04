@@ -1,0 +1,26 @@
+[
+  {
+    "id": "good_harvest",
+    "title": "A Bountiful Harvest",
+    "description": "Fields yield more than expected. Treasury swells.",
+    "trigger": "turn_advanced",
+    "weight": 5,
+    "effects": [{ "type": "treasury_delta", "value": 25 }]
+  },
+  {
+    "id": "peasant_unrest",
+    "title": "Peasant Unrest",
+    "description": "Whispers of rebellion stir in the villages.",
+    "trigger": "turn_advanced",
+    "weight": 3,
+    "effects": [{ "type": "loyalty_delta", "value": -5 }]
+  },
+  {
+    "id": "wandering_knight",
+    "title": "A Wandering Knight",
+    "description": "A landless knight offers his sword.",
+    "trigger": "turn_advanced",
+    "weight": 2,
+    "effects": [{ "type": "troops_delta", "value": 20 }]
+  }
+]

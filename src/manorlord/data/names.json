@@ -1,0 +1,15 @@
+{
+  "male": [
+    "Aldric", "Baldwin", "Cedric", "Edmund", "Garrick",
+    "Henrik", "Leofric", "Osric", "Roland", "Theodore"
+  ],
+  "female": [
+    "Adelaide", "Beatrix", "Eleanor", "Gisela", "Helena",
+    "Isolde", "Margery", "Rosamund", "Sybilla", "Yvaine"
+  ],
+  "surnames": [
+    "of Ashford", "of Blackmoor", "of Caernon", "of Dunmere",
+    "of Fairhold", "of Greymere", "of Highstone", "of Marwood",
+    "of Stormgate", "of Westvale"
+  ]
+}
